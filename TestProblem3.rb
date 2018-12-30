@@ -3,26 +3,25 @@ require "test/unit"
  
 class TestProblem3 < Test::Unit::TestCase
  
-  def test_ContainsDuplicates
+  def test_contains_duplicates
 
-   isDuplicate= ContainsDuplicates([1,2,3,4,5,3]) 
-    assert(isDuplicate)
+    inputArray = [1,2,3,4,5,3]
+
+    is_duplicate= contains_duplicates(inputArray) 
+
+    assert(is_duplicate)
  
-
   end
 
-  def test_ContainsNoDuplicates
+  def test_contains_no_duplicates
 
-    isDuplicate= ContainsDuplicates([1,2,3,4,5])
-    assert(!isDuplicate)
-  
+    inputArray = [2,1]
+
+    is_duplicate= contains_duplicates(inputArray)
+
+    assert(!is_duplicate)
+
    end
 
-   def test_RaiseExceptionWhenArgumentIsIncorrect
-
-    assert_raise( ArgumentError ) { ContainsDuplicates(nil) }
-    assert_raise( ArgumentError ) { ContainsDuplicates([-1,0,2,3,2]) }
-    assert_raise( ArgumentError ) { ContainsDuplicates([1,"b",2]) }
-  end
 
 end

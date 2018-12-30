@@ -2,31 +2,18 @@
 include Math
 
 
-def ContainsDuplicates numbers
+def contains_duplicates numbers
 
-  if numbers.nil?
-     raise ArgumentError, 'Argument is null' 
-  end 
-
+  duplicate_found=false
   numbers.each   do |number|
-
-    if !number.is_a? Integer
-      raise ArgumentError, 'Argument is not numeric' 
-    end
-
-    if !number.positive?
-      raise ArgumentError, 'Argument is not a positive number' 
-    end
-     
-    if numbers[number.abs-1] >0
+    if numbers[number.abs-1].positive?
       numbers[number.abs-1] *= -1 
-    else
-      return true
-       #puts number.abs               
+   else
+    duplicate_found = true
+     break              
     end
-
   end 
- return false
+ duplicate_found
   
 end 
 

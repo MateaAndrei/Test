@@ -3,25 +3,33 @@ require "Test/unit"
  
 class TestProblem1 < Test::Unit::TestCase
  
-  def test_SumOfEvenIsCorrect
+  def test_sum_of_even_is_correct
 
-    sum= SumOfEven(Array(-4..9))
-    assert_not_nil(sum)
-    assert_equal(14,sum)
+    inputArray = Array(-4..9)
+
+    result= sum_of_even(inputArray)
+
+    assert_equal(14,result)
 
   end
 
-  def test_SumIsZeroWhenArrayNotContainingEvenNumbers
+  def test_sum_is_zero_when_array_not_containing_even_numbers
 
-    sum= SumOfEven([1,3,5,7,9,11,13,15])
-    assert_not_nil(sum)
-    assert_equal(0,sum)
+    inputArray = [1,3,5,7,9,11,13,15]
+
+    result= sum_of_even(inputArray)
+
+    assert_equal(0,result)
+
   end
 
-  def test_RaiseExceptionWhenArgumentIsIncorrect
+  def test_sum_is_zero_when__empty_array
+    inputArray = []
 
-    assert_raise( ArgumentError ) { SumOfEven(nil) }
-    assert_raise( ArgumentError ) { SumOfEven([1,"b",2]) }
+    result= sum_of_even(inputArray)
+
+    assert_equal(0,result)
+
   end
 
 end
